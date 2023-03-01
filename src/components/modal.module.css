@@ -1,0 +1,22 @@
+.btn {
+  margin: 15px;
+  width: 100%;
+}
+.close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+.modal {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+.input {
+  width: 100%;
+}
+.center {
+  display: flex;
+  justify-content: center;
+}
