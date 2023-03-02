@@ -1,8 +1,3 @@
-export type ModalProp = {
-  children?: JSX.Element;
-  show: boolean;
-  toggle: () => void;
-};
 export type UserData = {
   id: string;
   name: string;
@@ -10,3 +5,14 @@ export type UserData = {
   date: string;
   description: string;
 };
+export interface User {
+  data: UserData[];
+}
+export interface SimpleDialogProps {
+  open: boolean;
+  selectedValue: string;
+  onClose: (value: string) => void;
+  tasks?: any;
+  addOrEdit: string;
+  saveOrEdit: string;
+}

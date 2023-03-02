@@ -1,6 +1,6 @@
 import Dialog from "@/components/Dialog";
+import User from "@/components/User";
 import Head from "next/head";
-import { useState } from "react";
 
 export default function Home() {
   return (
@@ -10,6 +10,7 @@ export default function Home() {
       </Head>
       <div className="wrapper">
         <Dialog />
+        <User />
       </div>
     </>
   );
