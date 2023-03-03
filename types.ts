@@ -24,7 +24,7 @@ export type Input = {
   name: string;
   type: string;
   label: string;
-  variant: any; //?
+  variant: any; // ?
   multiline?: boolean;
   row?: number;
   maxRows?: number;
