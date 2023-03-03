@@ -1,11 +1,12 @@
 import { useState } from "react";
 import Link from "next/link";
-import { useAppDispatch, useAppSelector } from "@/hooks/hooks";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
-import { deleteTodo } from "@/store/features/mainSlice";
 import SimpleDialog from "./Modal";
+import { deleteTodo } from "@/store/features/mainSlice";
+import { useAppDispatch, useAppSelector } from "@/hooks/hooks";
 import { UserData } from "types";
+
 import classes from "./user.module.css";
 
 export default function User() {

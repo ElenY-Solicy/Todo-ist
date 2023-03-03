@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { User, UserData } from "types";
+import { putValues } from "@/hooks/storage";
 
 const initialState: User = {
   data: [],
@@ -18,7 +19,7 @@ const mainSlice = createSlice({
     },
     deleteTodo(state, action: PayloadAction<string>) {
       state.data = state.data.filter((el) => el.id !== action.payload);
-      localStorage.setItem("data", JSON.stringify(state.data));
+      putValues("data", state.data);
     },
     editTodo(state, action: PayloadAction<UserData>) {
       state.data = state.data.map((el) => {
@@ -30,7 +31,7 @@ const mainSlice = createSlice({
         }
         return el;
       });
-      localStorage.setItem("data", JSON.stringify(state.data));
+      putValues("data", state.data);
     },
   },
 });

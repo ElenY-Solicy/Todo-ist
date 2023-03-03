@@ -1,3 +1,5 @@
+import { ChangeEventHandler, FormEventHandler } from "react";
+
 export type UserData = {
   id: string;
   name: string;
@@ -15,4 +17,26 @@ export interface SimpleDialogProps {
   tasks?: UserData;
   addOrEdit: string;
   saveOrEdit: string;
+}
+
+export type Input = {
+  id: string;
+  name: string;
+  type: string;
+  label: string;
+  variant: any; //?
+  multiline?: boolean;
+  row?: number;
+  maxRows?: number;
+  required?: boolean;
+};
+
+export interface FormProps {
+  onChange: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
+  defaultValue?: UserData;
+  handleSubmit: FormEventHandler | undefined;
+  wrapperClass: string;
+  inputClass: string;
+  savedOrEdit: string;
+  textField: Input[];
 }

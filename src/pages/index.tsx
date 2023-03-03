@@ -1,7 +1,6 @@
+import Head from "next/head";
 import Dialog from "@/components/Dialog";
 import User from "@/components/User";
-import { useAppSelector } from "@/hooks/hooks";
-import Head from "next/head";
 
 export default function Home() {
   return (
