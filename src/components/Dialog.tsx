@@ -1,7 +1,7 @@
 import { useState } from "react";
-import classes from "./modal.module.css";
 import Button from "@mui/material/Button";
 import SimpleDialog from "./Modal";
+import classes from "./modal.module.css";
 
 export default function SimpleDialogDemo() {
   const [open, setOpen] = useState(false);
@@ -23,7 +23,7 @@ export default function SimpleDialogDemo() {
         selectedValue={"Add Todo List"}
         open={open}
         onClose={handleClose}
-        addOrEdit='Add'
+        addOrEdit="Add"
         saveOrEdit="Save"
       />
     </div>

@@ -6,3 +6,14 @@
 .wrapper {
   padding: 16px;
 }
+.user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.singleUSer {
+  display: flex;
+  flex-direction: column;
+}

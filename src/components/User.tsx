@@ -1,12 +1,12 @@
-import { useAppDispatch, useAppSelector } from "@/hooks/hooks";
 import { useState } from "react";
-import classes from "./user.module.css";
+import Link from "next/link";
+import { useAppDispatch, useAppSelector } from "@/hooks/hooks";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import { deleteTodo } from "@/store/features/mainSlice";
 import SimpleDialog from "./Modal";
 import { UserData } from "types";
-import Link from "next/link";
+import classes from "./user.module.css";
 
 export default function User() {
   const userData = useAppSelector((state) => state.data.data);
@@ -25,7 +25,6 @@ export default function User() {
     setEdit(el);
     console.log(el.name);
   };
-  console.log(userData);
 
   return (
     <>
@@ -34,7 +33,7 @@ export default function User() {
           userData.map((el) => (
             <div className={classes.tableWrapper} key={el.id}>
               <div>
-                <Link href={`${el.id}`}>
+                <Link href={`${el.id}`} style={{ textDecoration: "none" }}>
                   <h3 className={classes.gap}>{el.todo}</h3>
                   <span>{el.name}</span>
                 </Link>

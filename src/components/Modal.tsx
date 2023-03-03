@@ -1,14 +1,14 @@
+import { useEffect, useState } from "react";
 import Button from "@mui/material/Button";
+import { v4 as uuid } from "uuid";
 import DialogTitle from "@mui/material/DialogTitle";
 import Dialog from "@mui/material/Dialog";
-import { useEffect, useState } from "react";
 import TextField from "@mui/material/TextField";
 import classes from "./modal.module.css";
-import CloseIcon from "@mui/icons-material/Close";
 import { DialogActions, DialogContent } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 import { SimpleDialogProps, UserData } from "types";
-import { v4 as uuid } from "uuid";
-import { addTodo, editTodo } from "@/store/features/mainSlice";
+import { addState, addTodo, editTodo } from "@/store/features/mainSlice";
 import { useAppDispatch } from "@/hooks/hooks";
 
 const getValues = () => {
@@ -37,10 +37,12 @@ export default function SimpleDialog(props: SimpleDialogProps) {
       const users = [...data, inputVales];
       localStorage.setItem("data", JSON.stringify(users));
       setData(users);
+      dispatch(addTodo(inputVales as UserData));
     } else {
-      console.log(inputVales,"777777");
+      const dataEdit = { ...inputVales, id: props.tasks.id };
+      console.log(dataEdit, "ggg");
 
-      dispatch(editTodo(inputVales as UserData));
+      dispatch(editTodo(dataEdit as UserData));
     }
   };
   const getInputValues = (e: any) => {
@@ -52,14 +54,11 @@ export default function SimpleDialog(props: SimpleDialogProps) {
   };
 
   useEffect(() => {
-    dispatch(addTodo(getValues() || data));
-  }, [data]);
-  useEffect(() => {
     if (win && !data?.length) {
+      dispatch(addState(getValues() || data));
       setData(getValues());
     }
   }, [win]);
-  console.log(props.tasks?.name);
 
   return (
     <>
