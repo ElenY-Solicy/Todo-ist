@@ -1,0 +1,22 @@
+.table {
+  border: 1px solid #000;
+  display: flex;
+  padding: 16px;
+  gap: 5px;
+  flex-wrap: wrap;
+  min-height: 20vh;
+}
+
+.tableWrapper {
+  padding: 16px;
+  border: 1px solid #000;
+  height: 50%;
+  text-align: center;
+  width: fit-content;
+}
+.gap {
+  margin-bottom: 5px;
+}
+.icon {
+  cursor: pointer;
+}
