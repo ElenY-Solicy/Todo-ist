@@ -21,16 +21,15 @@ const getValues = () => {
 
 export default function SimpleDialog(props: SimpleDialogProps) {
   const { onClose, selectedValue, open } = props;
-  const [data, setData] = useState<any>([]);
+  const [data, setData] = useState<UserData[]>([]);
   const [inputVales, setInputValues] = useState<UserData>({} as UserData);
-  const [editData, setEditData] = useState<UserData>({} as UserData);
   const win = typeof window !== "undefined";
   const dispatch = useAppDispatch();
 
   const handleClose = () => {
     onClose(selectedValue);
   };
-  const handleSubmit = (event: any) => {
+  const handleSubmit = (event: React.SyntheticEvent) => {
     event.preventDefault();
     handleClose();
     if (props.addOrEdit === "Add") {
@@ -39,13 +38,13 @@ export default function SimpleDialog(props: SimpleDialogProps) {
       setData(users);
       dispatch(addTodo(inputVales as UserData));
     } else {
-      const dataEdit = { ...inputVales, id: props.tasks.id };
+      const dataEdit = { ...inputVales, id: props.tasks?.id };
       console.log(dataEdit, "ggg");
 
       dispatch(editTodo(dataEdit as UserData));
     }
   };
-  const getInputValues = (e: any) => {
+  const getInputValues = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValues({
       ...inputVales,
       id: uuid(),

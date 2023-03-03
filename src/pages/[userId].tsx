@@ -5,9 +5,9 @@ import { useAppSelector } from "@/hooks/hooks";
 
 export default function UserId() {
   const route = useRouter();
-  const [oneUserData, setOneUserData] = useState<any>([]);
+  const [oneUserData, setOneUserData] = useState<UserData[]>([]);
   const userData = useAppSelector((state) => state.data.data);
-  
+
   useEffect(() => {
     setOneUserData(userData.filter((el) => el.id === route.query.userId));
   }, []);

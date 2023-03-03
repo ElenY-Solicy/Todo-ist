@@ -12,7 +12,7 @@ export interface SimpleDialogProps {
   open: boolean;
   selectedValue: string;
   onClose: (value: string) => void;
-  tasks?: any;
+  tasks?: UserData;
   addOrEdit: string;
   saveOrEdit: string;
 }

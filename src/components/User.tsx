@@ -11,7 +11,7 @@ import classes from "./user.module.css";
 export default function User() {
   const userData = useAppSelector((state) => state.data.data);
   const dispatch = useAppDispatch();
-  const [edit, setEdit] = useState({});
+  const [edit, setEdit] = useState<UserData>({} as UserData);
   const [open, setOpen] = useState(false);
 
   const handleClose = () => {
@@ -20,10 +20,9 @@ export default function User() {
   const handleDelete = (id: string) => {
     dispatch(deleteTodo(id));
   };
-  const handleEdit = (el: any) => {
+  const handleEdit = (el: UserData) => {
     setOpen(true);
     setEdit(el);
-    console.log(el.name);
   };
 
   return (
